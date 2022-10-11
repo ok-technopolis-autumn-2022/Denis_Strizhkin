@@ -2,74 +2,162 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Application for tracking your daily tasks">
     <title>todos</title>
+    <link href="/styles/main.css" rel="stylesheet">
 </head>
 <body>
-<header class="header">
-    <div class="header__container">
-        <h1 class="header__title">
-            todos
-        </h1>
-    </div>
-</header>
-<section class="menu">
-    <div class="menu__container">
-        <div class="menu__top">
-            <button class="top__dropdown">
-                <span class="icon--arrow-down"></span>
-            </button>
-            <input class="top__input" type="text" placeholder="What needs to be done?">
+<div class="todo-app">
+    <header class="todo-app__header">
+        <div class="header__container">
+            <h1 class="header__title">
+                todos
+            </h1>
         </div>
-        <ul class="menu__list">
-            <li class="todo-item">
-                <input class="todo-item__check" type="checkbox">
-                <p class="todo-item__text">HTML</p>
-                <button class="todo-item__delete-button">
-                    <span class="icon--cross"></span>
+    </header>
+    <main class="todo-app__frame">
+        <div class="frame__container">
+            <section class="frame__top">
+                <button
+                        class="top__dropdown"
+                        aria-label="Open dropdown menu"
+                >
+                    <span class="icon--arrow-down"></span>
                 </button>
-            </li>
-            <li class="todo-item">
-                <input class="todo-item__check" type="checkbox">
-                <p class="todo-item__text">CSS</p>
-                <button class="todo-item__delete-button">
-                    <span class="icon--cross"></span>
-                </button>
-            </li>
-            <li class="todo-item">
-                <input class="todo-item__check" type="checkbox">
-                <p class="todo-item__text">JS</p>
-                <button class="todo-item__delete-button">
-                    <span class="icon--cross"></span>
-                </button>
-            </li>
-            <li class="todo-item">
-                <input class="todo-item__check" type="checkbox">
-                <p class="todo-item__text">JS tools</p>
-                <button class="todo-item__delete-button">
-                    <span class="icon--cross"></span>
-                </button>
-            </li>
-        </ul>
-        <div class="menu__bottom">
-            <p class="bottom__items-left">
-                3 items left
-            </p>
-            <div class="bottom__selectors">
-                <button class="bottom__button">
-                    All
-                </button>
-                <button class="bottom__button">
-                    Active
-                </button>
-                <button class="bottom__button">
-                    Completed
+                <input
+                        class="top__input"
+                        type="text"
+                        placeholder="What needs to be done?"
+                        aria-label="Create new todo item"
+                >
+            </section>
+
+            <section class="frame__todos">
+                <ul class="todos__list">
+                    <li class="todo-item">
+                        <div class="todo-item__view">
+                            <input
+                                    type="checkbox"
+                                    class="todo-item__checkbox"
+                                    aria-label="Check todo item"
+                            >
+                            <span class="todo-item__text">HTML</span>
+                            <button class="todo-item__delete"
+                                    aria-label="Delete todo item">
+                                <span class="icon--cross"></span>
+                            </button>
+                        </div>
+                        <div class="todo-item__edit" hidden="hidden">
+                            <input
+                                    type="text"
+                                    class="todo-item__input"
+                                    value="HTML"
+                                    aria-label="Edit todo item"
+                            >
+                        </div>
+                    </li>
+                    <li class="todo-item">
+                        <div class="todo-item__view">
+                            <input
+                                    type="checkbox"
+                                    class="todo-item__checkbox"
+                                    aria-label="Check todo item"
+                            >
+                            <span class="todo-item__text">CSS</span>
+                            <button class="todo-item__delete"
+                                    aria-label="Delete todo item">
+                                <span class="icon--cross"></span>
+                            </button>
+                        </div>
+                        <div class="todo-item__edit" hidden="hidden">
+                            <input
+                                    type="text"
+                                    class="todo-item__input"
+                                    value="CSS"
+                                    aria-label="Edit todo item"
+                            >
+                        </div>
+                    </li>
+                    <li class="todo-item">
+                        <div class="todo-item__view">
+                            <input
+                                    type="checkbox"
+                                    class="todo-item__checkbox"
+                                    aria-label="Check todo item"
+                            >
+                            <span class="todo-item__text">JS</span>
+                            <button class="todo-item__delete"
+                                    aria-label="Delete todo item">
+                                <span class="icon--cross"></span>
+                            </button>
+                        </div>
+                        <div class="todo-item__edit" hidden="hidden">
+                            <input
+                                    type="text"
+                                    class="todo-item__input"
+                                    value="JS"
+                                    aria-label="Edit todo item"
+                            >
+                        </div>
+                    </li>
+                    <li class="todo-item">
+                        <div class="todo-item__view">
+                            <input
+                                    type="checkbox"
+                                    class="todo-item__checkbox"
+                                    aria-label="Check todo item"
+                            >
+                            <span class="todo-item__text">JS tools</span>
+                            <button class="todo-item__delete"
+                                    aria-label="Delete todo item">
+                                <span class="icon--cross"></span>
+                            </button>
+                        </div>
+                        <div class="todo-item__edit" hidden="hidden">
+                            <input
+                                    type="text"
+                                    class="todo-item__input"
+                                    value="JS tools"
+                                    aria-label="Edit todo item"
+                            >
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <div class="frame__bottom">
+                <span class="bottom__items-left">
+                    3 items left
+                </span>
+                <div class="bottom__selectors">
+                    <button
+                            class="bottom__button"
+                            aria-label="Select all"
+                    >
+                        All
+                    </button>
+                    <button
+                            class="bottom__button"
+                            aria-label="Select active"
+                    >
+                        Active
+                    </button>
+                    <button
+                            class="bottom__button"
+                            aria-label="Select completed"
+                    >
+                        Completed
+                    </button>
+                </div>
+                <button
+                        class="bottom__button"
+                        aria-label="Clear completed"
+                >
+                    Clear completed
                 </button>
             </div>
-            <button class="bottom__button">
-                Clear completed
-            </button>
         </div>
-    </div>
-</section>
+    </main>
+</div>
 </body>
 </html>
