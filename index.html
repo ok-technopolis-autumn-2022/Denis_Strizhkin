@@ -21,7 +21,7 @@
             <section class="frame__top">
                 <button
                         class="top__dropdown"
-                        aria-label="Open dropdown menu"
+                        title="Open dropdown menu"
                 >
                     <span class="icon--arrow-down"></span>
                 </button>
@@ -44,7 +44,7 @@
                             >
                             <span class="todo-item__text">HTML</span>
                             <button class="todo-item__delete"
-                                    aria-label="Delete todo item">
+                                    title="Delete todo item">
                                 <span class="icon--cross"></span>
                             </button>
                         </div>
@@ -66,7 +66,7 @@
                             >
                             <span class="todo-item__text">CSS</span>
                             <button class="todo-item__delete"
-                                    aria-label="Delete todo item">
+                                    title="Delete todo item">
                                 <span class="icon--cross"></span>
                             </button>
                         </div>
@@ -88,7 +88,7 @@
                             >
                             <span class="todo-item__text">JS</span>
                             <button class="todo-item__delete"
-                                    aria-label="Delete todo item">
+                                    title="Delete todo item">
                                 <span class="icon--cross"></span>
                             </button>
                         </div>
@@ -110,7 +110,7 @@
                             >
                             <span class="todo-item__text">JS tools</span>
                             <button class="todo-item__delete"
-                                    aria-label="Delete todo item">
+                                    title="Delete todo item">
                                 <span class="icon--cross"></span>
                             </button>
                         </div>
@@ -129,30 +129,33 @@
                 <span class="bottom__items-left">
                     3 items left
                 </span>
-                <div class="bottom__selectors">
-                    <button
-                            class="bottom__button"
-                            aria-label="Select all"
-                    >
-                        All
-                    </button>
-                    <button
-                            class="bottom__button"
-                            aria-label="Select active"
-                    >
-                        Active
-                    </button>
-                    <button
-                            class="bottom__button"
-                            aria-label="Select completed"
-                    >
-                        Completed
-                    </button>
-                </div>
-                <button
-                        class="bottom__button"
-                        aria-label="Clear completed"
+                <div
+                        class="bottom__selectors"
+                        role="radiogroup"
+                        aria-label="Applies filters to todos list"
                 >
+                    <label>
+                        <input
+                                type="radio"
+                                name="bottom__selectors"
+                        >
+                        All
+                    </label>
+                    <label>
+                        <input
+                                type="radio"
+                                name="bottom__selectors"
+                        >
+                        Active
+                    </label>
+                    <label>
+                        <input
+                                type="radio"
+                                name="bottom__selectors">
+                        Completed
+                    </label>
+                </div>
+                <button class="bottom__button">
                     Clear completed
                 </button>
             </div>
