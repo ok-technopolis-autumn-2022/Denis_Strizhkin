@@ -1,0 +1,38 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --clr-bg: rgba(0, 0, 0, 0.0001);
+    --clr-white: #ffffff;
+    --clr-dark1: #666666;
+    --clr-dark2: #888888;
+    --clr-dark3: #CCCCCC;
+}
+
+.todo-app {
+    background: var(--clr-bg);
+    color: var(--clr-dark1);
+}
+
+.header__title {
+    color: var(--clr-dark3);
+    font: normal 100 6.25rem 'Roboto', sans-serif;
+}
+
+.top__input {
+    color: var(--clr-dark3);
+    font: italic 300 1.5rem 'Roboto', sans-serif;
+}
+
+.todo-item {
+    color: var(--clr-dark1);
+    font: normal 300 1.5rem 'Roboto', sans-serif;
+}
+
+.frame__bottom, .bottom__button {
+    color: var(--clr-dark2);
+    font: normal 300 0.875rem 'Robot', sans-serif;
+}
