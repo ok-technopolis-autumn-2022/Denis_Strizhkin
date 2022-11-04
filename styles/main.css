@@ -47,6 +47,11 @@ body {
     overflow: hidden;
 }
 
+.frame__todos {
+    max-height: 296px;
+    height: 100%;
+}
+
 .top__dropdown {
     width: 50px;
     height: 50px;
@@ -114,15 +119,41 @@ body {
 
 .frame__bottom {
     box-shadow: inset 0 1px 0 #E6E6E6;
-    display: flex;
+    display: grid;
     align-items: center;
     margin-top: auto;
     padding: 1em 5px 1em 15px;
     justify-content: space-between;
 }
 
+.bottom__items-left {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.bottom__button {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+.bottom__selectors {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.5em;
+}
+
 .todos__list {
     list-style-type: none;
+    overflow-y: scroll;
+    max-height: 100%;
+    height: 100%;
+    scrollbar-width: none;
+}
+
+.todos__list::-webkit-scrollbar {
+    display: none;
 }
 
 .todo-item__checkbox {
@@ -199,6 +230,11 @@ body {
     border: none;
     background: var(--clr-white);
     padding: 0.5em;
+    margin-right: 2em;
+}
+
+.bottom__items-left {
+    margin-left: 2.5em;
 }
 
 .bottom__button:hover {
@@ -238,5 +274,13 @@ body {
 
     .frame__bottom {
         height: 44px;
+    }
+
+    .frame__bottom {
+        display: flex;
+    }
+
+    .bottom__items-left, .bottom__button {
+        margin: 0;
     }
 }
