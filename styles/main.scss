@@ -13,6 +13,12 @@
   --clr-select: #FAFAFA;
 }
 
+$app-frame-width: 560px;
+$app-frame-height: 400px;
+$frame-top-height: 60px;
+$frame-bottom-height: 44px;
+$todo-item-height: 64px;
+
 body {
   background: var(--clr-bg);
   height: 100vh;
@@ -38,7 +44,7 @@ body {
     display: flex;
     align-items: center;
     padding-inline: 10px;
-    height: 66px;
+    height: $frame-top-height;
   }
 
   &__container {
@@ -48,7 +54,7 @@ body {
   }
 
   &__todos {
-    max-height: 296px;
+    max-height: $app-frame-height - $frame-top-height - $frame-bottom-height;
     height: 100%;
   }
 
@@ -105,7 +111,7 @@ body {
 .todo-item {
   color: var(--clr-dark1);
   font: normal 300 1.5rem 'Roboto', sans-serif;
-  height: 64px;
+  height: $todo-item-height;
 
   &__checkbox {
     appearance: none;
@@ -148,7 +154,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0.6em 0.2em;
-    height: 60px;
+    height: $todo-item-height - 4px;
     width: 100%;
     white-space: nowrap
   }
@@ -163,6 +169,14 @@ body {
   &__button {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+    border: none;
+    background: var(--clr-white);
+    padding: 0.5em;
+    margin-right: 2em;
+
+    &:hover {
+      background: var(--clr-select);
+    }
   }
 
   &__selectors {
@@ -176,7 +190,21 @@ body {
       appearance: none;
       position: absolute;
       inset: 6px 2px 6px 2px;
+
+      &:checked {
+        border: 1px solid #EBDFDF;
+        border-radius: 3px;
+      }
     }
+
+    label {
+      padding: 0.7em;
+      position: relative;
+    }
+  }
+
+  &__items-left {
+    margin-left: 2.5em;
   }
 }
 
@@ -200,41 +228,6 @@ body {
   }
 }
 
-.bottom {
-  &__selectors {
-    input {
-      appearance: none;
-      position: absolute;
-      inset: 6px 2px 6px 2px;
-
-      &:checked {
-        border: 1px solid #EBDFDF;
-        border-radius: 3px;
-      }
-    }
-
-    label {
-      padding: 0.7em;
-      position: relative;
-    }
-  }
-
-  &__button {
-    border: none;
-    background: var(--clr-white);
-    padding: 0.5em;
-    margin-right: 2em;
-
-    &:hover {
-      background: var(--clr-select);
-    }
-  }
-
-  &__items-left {
-    margin-left: 2.5em;
-  }
-}
-
 .top__dropdown:hover, .top__input:hover, .todo-item:hover {
   background: var(--clr-select);
 }
@@ -254,22 +247,25 @@ body {
   box-shadow: inset 0 -1px 0 #E6E6E6;
 }
 
-@media (min-width: 560px) {
+@media (min-width: $app-frame-width) {
   .todo-app {
-    width: 560px;
+    $shadow-hor-offset: 2px;
+    $shadow-vert-offset: 4px;
+
+    width: $app-frame-width;
 
     &__frame {
-      height: 400px;
+      height: $app-frame-height;
       flex-grow: 0;
       position: relative;
 
       &::before {
-        inset: 400px 2px -4px 2px;
+        inset: $app-frame-height $shadow-hor-offset (-$shadow-vert-offset) $shadow-hor-offset;
         z-index: -1;
       }
 
       &::after {
-        inset: 400px 4px -8px 4px;
+        inset: $app-frame-height 2*$shadow-hor-offset -2*$shadow-vert-offset 2*$shadow-hor-offset;
         z-index: -2;
       }
 
@@ -286,7 +282,7 @@ body {
   }
 
   .frame__bottom {
-    height: 44px;
+    height: $frame-bottom-height;
     display: flex;
   }
 
