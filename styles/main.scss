@@ -68,6 +68,12 @@ body {
   }
 }
 
+.header__title {
+  color: var(--clr-dark3);
+  font: normal 100 6.25rem 'Roboto', sans-serif;
+  text-align: center;
+}
+
 .todos {
   &__list {
     list-style-type: none;
@@ -141,6 +147,7 @@ body {
     align-items: center;
     justify-content: space-around;
     flex-shrink: 0;
+    opacity: 0.0;
   }
 
   &__view {
@@ -157,6 +164,10 @@ body {
     height: $todo-item-height - 4px;
     width: 100%;
     white-space: nowrap
+  }
+
+  &:hover &__delete {
+    opacity: 100.0;
   }
 }
 
@@ -230,12 +241,6 @@ body {
 
 .top__dropdown:hover, .top__input:hover, .todo-item:hover {
   background: var(--clr-select);
-}
-
-.header__title {
-  color: var(--clr-dark3);
-  font: normal 100 6.25rem 'Roboto', sans-serif;
-  text-align: center;
 }
 
 .frame__bottom, .bottom__button {
